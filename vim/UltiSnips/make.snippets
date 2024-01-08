@@ -1,0 +1,25 @@
+snippet cpp "cpp"
+all: run
+
+clean:
+    rm -f *.gcov *.gcda *.gcno *.out
+
+run: clean
+    g++ -std=c++17 -Wall -Wextra -Weffc++ -pedantic-errors -g -o main.out main.cpp
+    ./main.out
+
+memory_errors: clean
+    g++ -std=c++17 -Wall -Wextra -Weffc++ -pedantic-errors -g -o valgrind.out main.cpp
+    valgrind --leak-check=full --show-leak-kinds=all -s ./valgrind.out
+
+endsnippet
+
+snippet tex "tex"
+all: clean
+
+clean:
+    latexmk -c
+    rm -rf *.synctex.gz
+
+endsnippet
+

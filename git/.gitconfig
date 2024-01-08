@@ -1,0 +1,10 @@
+[commit]
+	gpgsign = true
+[tag]
+	gpgsign = true
+[user]
+	name = Huy Lai
+	email = 98334390+lai-huy@users.noreply.github.com
+	signingkey = DB51D5CF5F5A9D71
+[core]
+	editor = nvim
