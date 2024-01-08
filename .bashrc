@@ -123,6 +123,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export XDG_CONFIG_HOME=~/.config
+export XDG_CONFIG_HOME=~/.dotfiles
 eval "$(oh-my-posh init bash --config $XDG_CONFIG_HOME/oh-my-posh/config.json)"
 
