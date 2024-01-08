@@ -3,5 +3,7 @@ vim/pack/
 vim/autoload
 vim/plugged
 
+nvim/lazy-locked.json
+
 *.gpg
 
