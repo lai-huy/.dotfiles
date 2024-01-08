@@ -1,2 +1,7 @@
+vim/undodir/
+vim/pack/
+vim/autoload
+vim/plugged
+
 *.gpg
 
