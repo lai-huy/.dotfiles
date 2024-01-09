@@ -126,3 +126,8 @@ export NVM_DIR="$HOME/.nvm"
 export XDG_CONFIG_HOME=~/.dotfiles
 eval "$(oh-my-posh init bash --config $XDG_CONFIG_HOME/oh-my-posh/config.json)"
 
+# Add .hush_file if it does not exist
+if [ ! -e ~/.hushlogin ]; then
+    touch ~/.hushlogin
+fi
+
