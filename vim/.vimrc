@@ -53,6 +53,7 @@ else
     set undodir="~/.local/state/vim/undo"
 endif
 set undofile
+let g:netrw_dirhistmax = 0
 
 let g:clipboard = {
                 \   'name': 'WslClipboard',

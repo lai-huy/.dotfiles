@@ -8,6 +8,8 @@ case $- in
       *) return;;
 esac
 
+export EDITOR=nvim
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -18,6 +20,8 @@ shopt -s histappend
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
 HISTFILESIZE=2000
+
+export LESSHISTFILE=-
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
