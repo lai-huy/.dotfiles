@@ -1,8 +1,9 @@
 #!/bin/bash
 
 declare -A files=(
-    [~/.dotfiles/.bashrc]="$HOME/.bashrc"
-    [~/.dotfiles/.profile]="$HOME/.profile"
+    [~/.dotfiles/bash/.bashrc]="$HOME/.bashrc"
+    [~/.dotfiles/bash/.bash_profile]="$HOME/.bash_profile"
+    [~/.dotfiles/bash/.bash_logout]="$HOME/.bash_logout"
     [~/.dotfiles/git/.gitconfig]="$HOME/.gitconfig"
     [~/.dotfiles/vim/.vimrc]="$HOME/.vimrc"
     # Add more files in the same manner if needed
