@@ -3,8 +3,6 @@ return {
     { 'f-person/git-blame.nvim' },
     { 'nvim-tree/nvim-web-devicons' },
     { 'nvim-tree/nvim-tree.lua' },
-    { 'tpope/vim-commentary' },
-    { 'tpope/vim-surround' },
-    { 'wellle/targets.vim' }
+    { 'windwp/nvim-ts-autotag' }
 }
 

@@ -20,6 +20,10 @@ return {
                 disable = { "latex", "markdown" },
                 additional_vim_regex_highlighting = false,
             },
+
+            autotag = {
+                enable = true
+            }
         })
     end
 }
