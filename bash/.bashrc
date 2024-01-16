@@ -136,3 +136,5 @@ if [ ! -e ~/.hushlogin ]; then
     touch ~/.hushlogin
 fi
 
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
