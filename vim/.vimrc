@@ -1,6 +1,5 @@
 set runtimepath^=$XDG_CONFIG_HOME/vim
 set runtimepath+=$XDG_CONFIG_HOME/vim/after
-let &packpath = &runtimepath
 let vim_dir = "$XDG_CONFIG_HOME/vim"
 
 call plug#begin()
@@ -9,15 +8,10 @@ Plug 'tpope/vim-commentary' "Comment stuff
 Plug 'tpope/vim-surround' "Allows me to change { to [ and what not
 Plug 'wellle/targets.vim' "adds more targets like [ or , - lazy but useful
 Plug 'lervag/vimtex'
-if (has("nvim"))
-    Plug 'rose-pine/nvim'
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-    Plug 'nvim-lua/plenary.nvim'
-    Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }
-else
-    Plug 'rose-pine/vim'
+Plug 'rose-pine/vim'
+if v:version >= 800
+    Plug 'Sirver/ultisnips'
 endif
-Plug 'Sirver/ultisnips',
 Plug 'itchyny/lightline.vim'
 call plug#end()
 
@@ -28,11 +22,7 @@ filetype plugin indent on
 syntax on "activates syntax highlighting among other things
 set background=dark "set hg group to dark
 set backspace=indent,eol,start "Fixes the backspace
-if (has("nvim"))
-    colorscheme rose-pine
-else
-    colorscheme rosepine
-endif
+colorscheme rosepine
 set encoding=utf-8 "required by YCM
 set expandtab
 set foldlevel=99
@@ -43,15 +33,13 @@ set ignorecase
 set smartcase
 set rnu nu "sets line numbers
 set splitbelow splitright
-set termguicolors "True colors term support
+if (has("termguicolors"))
+    set termguicolors
+endif
 let skip_defaults_vim=1
 set viminfo=""
 set omnifunc=syntaxcomplete#Complete
-if (has("nvim"))
-    set undodir="~/.local/state/nvim/undo"
-else
-    set undodir="~/.local/state/vim/undo"
-endif
+set undodir="~/.local/state/vim/undo"
 set undofile
 let g:netrw_dirhistmax = 0
 
