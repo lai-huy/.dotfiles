@@ -18,9 +18,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=0
-HISTFILESIZE=0
-unset HISTFILE
+HISTSIZE=500
+HISTFILESIZE=1000
 
 export LESSHISTFILE=-
 
