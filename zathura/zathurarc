@@ -27,7 +27,7 @@ set guioptions ""
 
 set font "FiraCode 12"
 set default-bg "#000000" #00
-set default-fg "#F7F7F6" #01
+set default-fg "#500000" #01
 
 set statusbar-fg "#B0B0B0" #04
 set statusbar-bg "#202020" #01
@@ -54,8 +54,8 @@ set notification-bg "#90A959" #0B
 set notification-fg "#151515" #00
 
 set recolor "true"
-set recolor-lightcolor "#000000" #00
-set recolor-darkcolor "#E0E0E0" #06
+set recolor-lightcolor "#E0E0E0" #00
+set recolor-darkcolor "#000000" #06
 set recolor-reverse-video "true"
 set recolor-keephue "true"
 
