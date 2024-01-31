@@ -8,6 +8,7 @@ Plug 'tpope/vim-commentary' "Comment stuff
 Plug 'tpope/vim-surround' "Allows me to change { to [ and what not
 Plug 'wellle/targets.vim' "adds more targets like [ or , - lazy but useful
 Plug 'lervag/vimtex'
+Plug 'github/copilot.vim'
 Plug 'rose-pine/vim'
 if v:version >= 800
     Plug 'Sirver/ultisnips'
