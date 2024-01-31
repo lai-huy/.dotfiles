@@ -101,18 +101,6 @@ let g:lightline = {
       \ 'colorscheme': 'rosepine_moon',
       \ }
 
-"Telescope
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-
-"Treesitter
-let g:c_syntax_for_h = 1
-if (has("nvim"))
-    luafile ~/.config/nvim/after/plugin/treesitter.lua
-endif
-
 "UltiSnips
 let g:UltiSnipsExpandTrigger       = '<Tab>'    " use Tab to expand snippets
 let g:UltiSnipsJumpForwardTrigger  = '<Tab>'    " use Tab to move forward through tabstops

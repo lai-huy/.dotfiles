@@ -15,7 +15,8 @@ for source_file in "${!files[@]}"; do
     if [ ! -L "$target_file" ]; then
         ln -s $source_file $target_file
     else
-        echo "$target_file already exists."
+        rm -f $source_file
+        ln -s $source_file $target_file
     fi
 done
 
