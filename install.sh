@@ -15,7 +15,7 @@ for source_file in "${!files[@]}"; do
     if [ ! -L "$target_file" ]; then
         ln -s $source_file $target_file
     else
-        rm -f $source_file
+        rm -rf $target_file
         ln -s $source_file $target_file
     fi
 done
