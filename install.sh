@@ -1,11 +1,11 @@
 #!/bin/bash
 
 declare -A files=(
-    [~/.dotfiles/bash/.bashrc]="$HOME/.bashrc"
-    [~/.dotfiles/bash/.bash_profile]="$HOME/.bash_profile"
-    [~/.dotfiles/bash/.bash_logout]="$HOME/.bash_logout"
-    [~/.dotfiles/git/.gitconfig]="$HOME/.gitconfig"
-    [~/.dotfiles/vim/.vimrc]="$HOME/.vimrc"
+    ["$HOME/.dotfiles/bash/.bashrc"]="$HOME/.bashrc"
+    ["$HOME/.dotfiles/bash/.bash_profile"]="$HOME/.bash_profile"
+    ["$HOME/.dotfiles/bash/.bash_logout"]="$HOME/.bash_logout"
+    ["$HOME/.dotfiles/git/.gitconfig"]="$HOME/.gitconfig"
+    ["$HOME/.dotfiles/vim/.vimrc"]="$HOME/.vimrc"
     # Add more files in the same manner if needed
 )
 
@@ -20,5 +20,5 @@ for source_file in "${!files[@]}"; do
     fi
 done
 
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+curl -fLo "$HOME/.vim/autoload/plug.vim" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
