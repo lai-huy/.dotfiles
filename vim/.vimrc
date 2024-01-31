@@ -9,7 +9,7 @@ Plug 'tpope/vim-surround' "Allows me to change { to [ and what not
 Plug 'wellle/targets.vim' "adds more targets like [ or , - lazy but useful
 Plug 'lervag/vimtex'
 Plug 'github/copilot.vim'
-Plug 'rose-pine/vim'
+Plug 'altercation/vim-colors-solarized'
 if v:version >= 800
     Plug 'Sirver/ultisnips'
 endif
@@ -23,7 +23,7 @@ filetype plugin indent on
 syntax on "activates syntax highlighting among other things
 set background=dark "set hg group to dark
 set backspace=indent,eol,start "Fixes the backspace
-colorscheme rosepine
+colorscheme solarized
 set encoding=utf-8 "required by YCM
 set expandtab
 set foldlevel=99
