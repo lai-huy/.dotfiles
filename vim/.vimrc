@@ -9,7 +9,7 @@ Plug 'tpope/vim-surround' "Allows me to change { to [ and what not
 Plug 'wellle/targets.vim' "adds more targets like [ or , - lazy but useful
 Plug 'lervag/vimtex'
 Plug 'github/copilot.vim'
-Plug 'altercation/vim-colors-solarized'
+Plug 'dunstontc/vim-vscode-theme'
 if v:version >= 800
     Plug 'Sirver/ultisnips'
 endif
@@ -23,7 +23,7 @@ filetype plugin indent on
 syntax on "activates syntax highlighting among other things
 set background=dark "set hg group to dark
 set backspace=indent,eol,start "Fixes the backspace
-colorscheme solarized
+colorscheme dark_plus 
 set encoding=utf-8 "required by YCM
 set expandtab
 set foldlevel=99
@@ -101,11 +101,6 @@ endfunction
 let g:lightline = {
       \ 'colorscheme': 'rosepine_moon',
       \ }
-
-"UltiSnips
-let g:UltiSnipsExpandTrigger       = '<Tab>'    " use Tab to expand snippets
-let g:UltiSnipsJumpForwardTrigger  = '<Tab>'    " use Tab to move forward through tabstops
-let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'  " use Shift-Tab to move backward through tabstops
 
 "Vimtex configs
 let g:tex_flavor='latex'
