@@ -54,8 +54,8 @@ let g:clipboard = {
                 \   'cache_enabled': 0,
                 \ }
 
-hi  Normal       guibg=NONE ctermbg=NONE
-hi  NormalFloat  guibg=NONE ctermbg=NONE
+" hi  Normal       guibg=NONE ctermbg=NONE
+" hi  NormalFloat  guibg=NONE ctermbg=NONE
 set laststatus=2
 set showcmd
 set shiftwidth=4
