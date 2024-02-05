@@ -9,11 +9,8 @@ Plug 'tpope/vim-surround' "Allows me to change { to [ and what not
 Plug 'wellle/targets.vim' "adds more targets like [ or , - lazy but useful
 Plug 'lervag/vimtex'
 Plug 'github/copilot.vim'
-Plug 'dunstontc/vim-vscode-theme'
-if v:version >= 800
-    Plug 'Sirver/ultisnips'
-endif
 Plug 'itchyny/lightline.vim'
+Plug 'tomasiser/vim-code-dark'
 call plug#end()
 
 let g:mapleader = "\\"
@@ -23,7 +20,7 @@ filetype plugin indent on
 syntax on "activates syntax highlighting among other things
 set background=dark "set hg group to dark
 set backspace=indent,eol,start "Fixes the backspace
-colorscheme dark_plus 
+colorscheme codedark 
 set encoding=utf-8 "required by YCM
 set expandtab
 set foldlevel=99
@@ -101,6 +98,7 @@ endfunction
 let g:lightline = {
       \ 'colorscheme': 'rosepine_moon',
       \ }
+set noshowmode
 
 "Vimtex configs
 let g:tex_flavor='latex'
