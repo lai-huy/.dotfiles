@@ -136,7 +136,7 @@ export XDG_CONFIG_HOME=~/.dotfiles
 
 # Check if oh-my-posh is installed
 if command -v oh-my-posh &> /dev/null; then
-    eval "$(oh-my-posh init bash --config $XDG_CONFIG_HOME/oh-my-posh/config.json)"
+    eval "$(oh-my-posh init bash --config $XDG_CONFIG_HOME/omp/config.json)"
 fi
 
 # Check if Homebrew is installed
