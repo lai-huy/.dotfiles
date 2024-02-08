@@ -139,7 +139,5 @@ if command -v oh-my-posh &> /dev/null; then
     eval "$(oh-my-posh init bash --config $XDG_CONFIG_HOME/omp/config.json)"
 fi
 
-# Check if Homebrew is installed
-if command -v brew &> /dev/null; then
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-fi
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
