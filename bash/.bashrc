@@ -141,3 +141,7 @@ fi
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
+# Navigate to ~/.dotfiles and git pull
+cd $HOME/.dotfiles
+git pull
+
