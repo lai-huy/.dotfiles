@@ -145,6 +145,8 @@ fi
 
 # Navigate to ~/.dotfiles and git pull
 cd $HOME/.dotfiles
-git pull
+if git diff-index --quiet HEAD --; then
+    git pull
+fi
 cd $HOME
 
