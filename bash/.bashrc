@@ -143,9 +143,8 @@ if [ -f /home/linuxbrew/.linuxbrew/bin/brew ]; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
-# Navigate to ~/.dotfiles and git pull if there are changes
+# Navigate to ~/.dotfiles and git pull
 cd $HOME/.dotfiles
-if ! git diff-index --quiet HEAD --; then
-    git pull
-fi
+git pull
 cd $HOME
+
