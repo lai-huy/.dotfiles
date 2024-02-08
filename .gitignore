@@ -8,5 +8,7 @@ vim/plugged
 
 nvim/lazy-lock.json
 
+github-copilot/hosts.json
+
 *.gpg
 
