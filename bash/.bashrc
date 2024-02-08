@@ -146,6 +146,8 @@ fi
 # Navigate to ~/.dotfiles and git pull
 cd $HOME/.dotfiles
 if git diff-index --quiet HEAD --; then
+    echo "No changes"
+else
     git pull
 fi
 cd $HOME
