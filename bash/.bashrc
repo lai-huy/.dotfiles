@@ -139,9 +139,12 @@ if command -v oh-my-posh &> /dev/null; then
     eval "$(oh-my-posh init bash --config $XDG_CONFIG_HOME/omp/config.json)"
 fi
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+if [ -f /home/linuxbrew/.linuxbrew/bin/brew ]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
 
 # Navigate to ~/.dotfiles and git pull
 cd $HOME/.dotfiles
 git pull
+cd $HOME
 
