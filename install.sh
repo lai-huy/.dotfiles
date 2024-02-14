@@ -2,6 +2,7 @@
 
 declare -A files=(
     ["$HOME/.dotfiles/bash/.bashrc"]="$HOME/.bashrc"
+    ["$HOME/.dotfiles/bash/.bash_aliases"]="$HOME/.bash_aliases"
     ["$HOME/.dotfiles/bash/.bash_profile"]="$HOME/.bash_profile"
     ["$HOME/.dotfiles/bash/.bash_logout"]="$HOME/.bash_logout"
     ["$HOME/.dotfiles/git/.gitconfig"]="$HOME/.gitconfig"
