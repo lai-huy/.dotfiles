@@ -11,5 +11,7 @@ nvim/lazy-lock.json
 github-copilot/hosts.json
 github-copilot/
 
+nextjs-nodejs/
+
 *.gpg
 
