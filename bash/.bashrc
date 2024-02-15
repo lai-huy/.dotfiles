@@ -146,5 +146,5 @@ fi
 # Navigate to ~/.dotfiles and git pull
 cd $HOME/.dotfiles
 git pull
-cd $HOME
+cd -
 
