@@ -72,6 +72,8 @@ noremap <leader>e <C-w><C-w>
 noremap <leader>z [s1z=
 noremap <leader>p "+p
 noremap <leader>P "+P
+noremap <leader>y "+y
+noremap <leader>Y "+Y
 noremap <leader>f :Files<cr>
 noremap <leader>c :cd %:p:h<cr>:pwd<cr>
 noremap <leader><cr> o<Esc>
