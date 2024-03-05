@@ -148,3 +148,5 @@ cd $HOME/.dotfiles
 git pull
 cd -
 
+bind -x '"\C-l": clear'
+
