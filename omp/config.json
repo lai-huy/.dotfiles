@@ -68,7 +68,7 @@
                     "powerline_symbol": "\ue0b0",
                     "foreground": "p:white",
                     "background": "p:blue",
-                    "template": " \ue235 {{ if .Venv }}{{ .Venv }}{{ end }} "
+                    "template": " \ue235 {{ if .Venv }}(venv){{ end }} "
                 },
 
                 {
