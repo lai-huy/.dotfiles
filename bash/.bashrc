@@ -125,18 +125,11 @@ if [ ! -e ~/.hushlogin ]; then
     touch ~/.hushlogin
 fi
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin:/usr/bin/clangd-12"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 export XDG_CONFIG_HOME=~/.dotfiles
+export PATH="/usr/local/texlive/2024/bin/x86_64-linux:$PATH"
 
-# Check if oh-my-posh is installed
-if command -v oh-my-posh &> /dev/null; then
-    eval "$(oh-my-posh init bash --config $XDG_CONFIG_HOME/omp/config.json)"
+if command -v /home/linuxbrew/.linuxbrew/bin/oh-my-posh &> /dev/null; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/oh-my-posh init bash --config $XDG_CONFIG_HOME/omp/config.json)"
 fi
 
 if [ -f /home/linuxbrew/.linuxbrew/bin/brew ]; then
@@ -150,3 +143,7 @@ cd -
 
 bind -x '"\C-l": clear'
 
+
+export NVM_DIR="$HOME/.dotfiles/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
