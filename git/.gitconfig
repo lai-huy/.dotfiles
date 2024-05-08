@@ -5,9 +5,13 @@
 [user]
 	name = Huy Lai
 	email = 98334390+lai-huy@users.noreply.github.com
-	signingkey = 924934599DEFE788
+	signingkey = C2C44848113F05A1
 [core]
     editor = nvim
 
 [push]
 	default = simple
+[init]
+	defaultBranch = main
+[credential]
+	helper = store
