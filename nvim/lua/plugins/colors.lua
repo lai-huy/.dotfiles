@@ -1,12 +1,19 @@
 return {
-    'Mofiqul/vscode.nvim',
+    "Mofiqul/vscode.nvim",
     config = function()
-        require('vscode').setup({
-            disable_background = true
+        local c = require("vscode.colors").get_colors()
+        require("vscode").setup({
+            transparent = false,
+            italic_comments = true,
+            underline_links = true,
+            disable_nvimtree_bg = true,
+            disable_background = true,
+
+            group_overrides = {
+                Cursor = {fg=c.vscDarkBlue, bg=c.vscLightGreen, bold=true},
+            }
         })
-        vim.cmd('colorscheme vscode')
-        -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-    	-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+        vim.cmd("colorscheme vscode")
     end
 }
 
