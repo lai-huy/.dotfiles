@@ -2,6 +2,12 @@ set runtimepath^=$XDG_CONFIG_HOME/vim
 set runtimepath+=$XDG_CONFIG_HOME/vim/after
 let vim_dir = "$XDG_CONFIG_HOME/vim"
 
+let data_dir = has("nvim") ? stdpath("data") . "/site" : vim_dir
+if empty(glob(data_dir . "/autoload/plug.vim"))
+  silent execute "!curl -fLo " . data_dir . "/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin()
 Plug 'jiangmiao/auto-pairs' "auto completes [] and () and makes life a bit easier
 Plug 'tpope/vim-commentary' "Comment stuff
@@ -40,6 +46,7 @@ set omnifunc=syntaxcomplete#Complete
 set undodir="~/.local/state/vim/undo"
 set undofile
 let g:netrw_dirhistmax = 0
+set wrap!
 
 let g:clipboard = {
                 \   'name': 'WslClipboard',
