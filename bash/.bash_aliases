@@ -10,6 +10,7 @@ alias math471="cd /mnt/c/MrPineapple/TAMU/MATH-471/"
 
 # Aliases for gpg
 alias sign="gpg -se -r \"98334390+lai-huy@users.noreply.github.com\" .gitignore"
+alias sign_personal="gpg -se -r \"74255810+MrPineapple070@users.noreply.github.com\" .gitignore"
 
 # Aliases for ssh
 alias grace="ssh lai.huy@grace.hprc.tamu.edu"
