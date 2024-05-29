@@ -20,3 +20,8 @@ alias compute="ssh lai.huy@compute.cse.tamu.edu"
 alias python="/usr/bin/python3.12"
 alias python3="/usr/bin/python3.12"
 
+# Alias for lsDelux
+alias ls="lsd"
+alias la="lsd -la"
+alias ll="lsd -l"
+
