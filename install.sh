@@ -10,6 +10,10 @@ declare -A files=(
     # Add more files in the same manner if needed
 )
 
+command_exists() {
+    command -v "$1" >/dev/null 2>&1
+}
+
 for source_file in "${!files[@]}"; do
     target_file="${files[$source_file]}"
 
@@ -21,3 +25,24 @@ for source_file in "${!files[@]}"; do
     fi
 done
 
+if ! command_exists brew; then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+else
+    brew update
+
+    if ! command_exists nvim; then
+        brew install neovim
+    fi
+
+    if ! command_exists oh-my-posh; then
+        brew install oh-my-posh
+    fi
+
+    if ! command_exists lsd; then
+        brew install lsd
+    fi
+
+    if ! command_exists diff-so-fancy; then
+        brew install diff-so-fancy
+    fi
+fi
