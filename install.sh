@@ -29,6 +29,10 @@ if ! command_exists brew; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 else
     brew update
+    
+    if ! command_exists gh; then
+        brew install gh
+    fi
 
     if ! command_exists nvim; then
         brew install neovim
