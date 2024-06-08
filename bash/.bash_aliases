@@ -22,6 +22,7 @@ alias python3="/usr/bin/python3.12"
 
 # Alias for lsDelux
 alias ls="lsd"
-alias la="lsd -la"
-alias ll="lsd -l"
+alias ll="ls -alF"
+alias la="ls -A"
+alias l="ls -F -- -C"
 
