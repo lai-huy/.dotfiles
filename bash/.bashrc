@@ -133,7 +133,7 @@ fi
 
 # Navigate to ~/.dotfiles and git pull
 cd $HOME/.dotfiles
-git pull
+git pull --rebase origin main
 cd -
 
 bind -x '"\C-l": clear'
