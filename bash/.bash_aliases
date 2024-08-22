@@ -8,13 +8,18 @@ alias csce662="cd /mnt/c/MrPineapple/TAMU/CSCE-662/"
 alias csce735="cd /mnt/c/MrPineapple/TAMU/CSCE-735/"
 alias math471="cd /mnt/c/MrPineapple/TAMU/MATH-471/"
 
+# Aliases for other commands
+alias e="exit"
+alias c="clear"
+alias omp="oh-my-posh"
+
 # Aliases for gpg
 alias sign="gpg -se -r \"98334390+lai-huy@users.noreply.github.com\" .gitignore"
-alias sign_personal="gpg -se -r \"74255810+MrPineapple070@users.noreply.github.com\" .gitignore"
 
 # Aliases for ssh
 alias grace="ssh lai.huy@grace.hprc.tamu.edu"
 alias compute="ssh lai.huy@compute.cse.tamu.edu"
+alias linux="ssh lai.huy@linux.cse.tamu.edu"
 
 # Aliases for python
 alias python="/usr/bin/python3.12"
