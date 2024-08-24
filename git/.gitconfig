@@ -1,7 +1,7 @@
 [user]
 	name = Huy Lai
 	email = 98334390+lai-huy@users.noreply.github.com
-    signingkey = C2C44848113F05A1
+	signingkey = C2C44848113F05A1
 
 [pager]
     diff = diff-so-fancy | less --RAW-CONTROL-CHARS
