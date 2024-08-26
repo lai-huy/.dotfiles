@@ -63,7 +63,7 @@
 	defaultBranch = main
 
 [credential]
-    helper = store
+	helper = store --file ~/.git-credentials
 
 [alias]
     st = status
