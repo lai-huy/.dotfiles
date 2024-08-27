@@ -12,6 +12,7 @@ alias math471="cd /mnt/c/MrPineapple/TAMU/MATH-471/"
 alias e="exit"
 alias c="clear"
 alias omp="oh-my-posh"
+alias quit="shutdown"
 
 # Aliases for gpg
 alias sign="gpg -se -r \"98334390+lai-huy@users.noreply.github.com\" .gitignore"
