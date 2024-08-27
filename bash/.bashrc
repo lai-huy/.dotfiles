@@ -9,7 +9,7 @@ case $- in
 esac
 
 export EDITOR=nvim
-export BROWSER=~/chrome.exe
+export BROWSER=$HOME/chrome.exe
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
