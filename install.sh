@@ -1,35 +1,39 @@
 #!/bin/bash
-
-# Check for sudo permission
-if [ "$EUID" -ne 0 ]; then
-    echo "This script requires sudo privileges"
-    sudo -v
-fi
-
 command_exists() {
     command -v "$1" >/dev/null 2>&1
 }
 
-if ! command_exists git; then
-    sudo apt install -y git
+# Check for sudo permission
+echo "Do you want to run this script with sudo privileges for installing packages? (yes/no)"
+read -r sudo_perms
+
+if [ "$sudo_perms" == "yes" ]; then
+    sudo -v
+
+    if ! command_exists git; then
+        sudo apt install -y git
+    fi
+
+    if ! command_exists curl; then
+        sudo apt install -y curl
+    fi
+
+    if ! command_exists g++; then
+        sudo apt install g++;
+    fi
+
+    if ! command_exists gcc; then
+        sudo apt install gcc;
+    fi
+
+    if ! command_exists gdb; then
+        sudo apt install gdb;
+    fi
+else
+    echo "Skipping package installation and proceeding with symbolic linking."
 fi
 
-if ! command_exists curl; then
-    sudo apt install -y curl
-fi
-
-if ! command_exists g++; then
-    sudo apt install g++;
-fi
-
-if ! command_exists gcc; then
-    sudo apt install gcc;
-fi
-
-if ! command_exists gdb; then
-    sudo apt install gdb;
-fi
-
+# Symbolically link some config files
 declare -A files=(
     ["$HOME/.dotfiles/bash/.bashrc"]="$HOME/.bashrc"
     ["$HOME/.dotfiles/bash/.bash_aliases"]="$HOME/.bash_aliases"
@@ -51,6 +55,7 @@ for source_file in "${!files[@]}"; do
     fi
 done
 
+# Install brew stuff
 if ! command_exists brew; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 else
