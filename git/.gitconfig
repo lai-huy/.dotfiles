@@ -1,7 +1,7 @@
 [user]
 	name = Huy Lai
 	email = 98334390+lai-huy@users.noreply.github.com
-	signingkey = C2C44848113F05A1
+	signingkey = /home/pineapple/.ssh/id_ed25519.pub
 
 [pager]
     diff = diff-so-fancy | less --RAW-CONTROL-CHARS
@@ -50,8 +50,8 @@
     xfuncname = "^#+.*$"
 
 [commit]
-    gpgsign = true
     verbose = true
+	gpgsign = true
 
 [tag]
 	gpgsign = true
@@ -161,4 +161,5 @@
     oldHighlight = red bold 52
     newNormal = green bold
     newHighlight = green bold 22
-
+[gpg]
+	format = ssh
