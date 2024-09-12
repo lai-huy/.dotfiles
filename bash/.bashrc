@@ -124,6 +124,7 @@ fi
 export XDG_CONFIG_HOME=~/.dotfiles
 export PATH="/usr/local/texlive/2024/bin/x86_64-linux:$PATH"
 export PATH="/home/linuxbrew/.linuxbrew/opt/node@20/bin:$PATH"
+export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 
 if command -v /home/linuxbrew/.linuxbrew/bin/oh-my-posh &> /dev/null; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/oh-my-posh init bash --config $XDG_CONFIG_HOME/omp/config.json)"
