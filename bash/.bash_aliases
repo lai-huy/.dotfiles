@@ -24,11 +24,11 @@ alias linux="ssh lai.huy@linux.cse.tamu.edu"
 
 # Aliases for python
 alias python="/home/linuxbrew/.linuxbrew/bin/python3"
-alias python3="/home/linuxbrew/.linuxbrew/bin/python3.12"
+alias python3="/home/linuxbrew/.linuxbrew/bin/python3.13"
 
 # Alias for lsDelux
-alias ls="lsd"
-alias ll="ls --all --long --classify"
-alias la="ls -A"
-alias l="ls -F -- -C"
+# alias ls="lsd"
+# alias ll="ls --all --long --classify"
+# alias la="ls -A"
+# alias l="ls -F -- -C"
 
