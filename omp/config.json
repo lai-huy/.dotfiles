@@ -47,33 +47,6 @@
             "{{ if gt .Ahead 0 }}#B48EAD{{ end }}",
             "{{ if gt .Behind 0 }}#B48EAD{{ end }}"
           ]
-        },
-        {
-          "properties": {
-            "always_enabled": true,
-            "cache_duration": "none"
-          },
-          "template": " \ueba2 {{ .FormattedMs }} ",
-          "foreground": "#2E3440",
-          "powerline_symbol": "\ue0b0",
-          "background": "#B48EAD",
-          "type": "executiontime",
-          "style": "powerline"
-        },
-        {
-          "properties": {
-            "always_enabled": true,
-            "cache_duration": "none"
-          },
-          "trailing_diamond": "\ue0b0",
-          "template": " {{ if gt .Code 0 }}\uf00d {{ reason .Code }}{{ else }}\uf42e {{ end }}",
-          "foreground": "#2E3440",
-          "background": "#EBCB8B",
-          "type": "status",
-          "style": "diamond",
-          "background_templates": [
-            "{{ if gt .Code 0 }}#f1184c{{ end }}"
-          ]
         }
       ]
     },
@@ -95,24 +68,8 @@
         },
         {
           "properties": {
-            "cache_duration": "none"
-          },
-          "template": "{{ if not .Error }}{{ .Icon }}{{ .Percentage }}{{ end }}{{ .Error }}\uf295 \ueb2d ",
-          "foreground": "#242424",
-          "powerline_symbol": "\ue0b2",
-          "background": "#A3BE8C",
-          "type": "battery",
-          "style": "powerline",
-          "background_templates": [
-            "{{if eq \"Charging\" .State.String}}#A3BE8C{{end}}",
-            "{{if eq \"Discharging\" .State.String}}#A3BE8C{{end}}",
-            "{{if eq \"Full\" .State.String}}#A3BE8C{{end}}"
-          ],
-          "invert_powerline": true
-        },
-        {
-          "properties": {
-            "cache_duration": "none"
+            "cache_duration": "none",
+            "time_format": "15:04"
           },
           "trailing_diamond": "\ue0b4",
           "template": " \ue641 {{ .CurrentDate | date .Format }} ",
