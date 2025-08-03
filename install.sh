@@ -28,18 +28,27 @@ if [[ "$sudo_perms" =~ ^[Yy](es)?$ ]]; then
     if ! sudo -v; then
         warning "Failed to get sudo privileges. Continuing without package installation."
     else
+        # Update package lists
         status "Updating package lists..."
         sudo apt update
 
-        if ! command_exists git; then
-            status "Installing git..."
-            sudo apt install -y git
-        fi
+        # List of apt packages to install
+        apt_packages=(
+            git
+            curl
+            make
+        )
 
-        if ! command_exists curl; then
-            status "Installing curl..."
-            sudo apt install -y curl
-        fi
+        # Install apt packages
+        status "Installing system packages..."
+        for pkg in "${apt_packages[@]}"; do
+            if ! dpkg -l | grep -q "^ii\s*$pkg\s"; then
+                status "Installing $pkg..."
+                sudo apt install -y "$pkg"
+            else
+                status "$pkg is already installed via apt."
+            fi
+        done
     fi
 else
     status "Skipping package installation and proceeding with symbolic linking."
@@ -100,7 +109,7 @@ if command_exists brew; then
     status "Installing/updating Homebrew packages..."
     brew_packages=(
         neovim
-        python
+        python@3.13
         gcc
         lazygit
         gh
