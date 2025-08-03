@@ -5,11 +5,67 @@ return {
         "williamboman/mason-lspconfig.nvim",
         "hrsh7th/nvim-cmp",
         "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-buffer",
+        "hrsh7th/cmp-path",
+        "hrsh7th/cmp-cmdline",
+        "L3MON4D3/LuaSnip",
+        "saadparwaiz1/cmp_luasnip",
     },
     config = function()
+        -- Setup nvim-cmp
+        local cmp = require('cmp')
+        local luasnip = require('luasnip')
+        
+        cmp.setup({
+            snippet = {
+                expand = function(args)
+                    require('luasnip').lsp_expand(args.body)
+                end,
+            },
+            mapping = cmp.mapping.preset.insert({
+                ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+                ['<C-f>'] = cmp.mapping.scroll_docs(4),
+                ['<C-Space>'] = cmp.mapping.complete(),
+                ['<C-e>'] = cmp.mapping.abort(),
+                ['<CR>'] = cmp.mapping.confirm({ select = true }),
+                ['<Tab>'] = cmp.mapping(function(fallback)
+                    if cmp.visible() then
+                        cmp.select_next_item()
+                    elseif luasnip.expand_or_jumpable() then
+                        luasnip.expand_or_jump()
+                    else
+                        fallback()
+                    end
+                end, { 'i', 's' }),
+                ['<S-Tab>'] = cmp.mapping(function(fallback)
+                    if cmp.visible() then
+                        cmp.select_prev_item()
+                    elseif luasnip.jumpable(-1) then
+                        luasnip.jump(-1)
+                    else
+                        fallback()
+                    end
+                end, { 'i', 's' }),
+            }),
+            sources = cmp.config.sources({
+                { name = 'nvim_lsp' },
+                { name = 'luasnip' },
+            }, {
+                { name = 'buffer' },
+                { name = 'path' },
+            })
+        })
+
+        -- Setup LSP
+        local capabilities = require('cmp_nvim_lsp').default_capabilities()
         local mason = require("mason").setup()
-        local mason_lspconfig = require("mason-lspconfig").setup()
+        local mason_lspconfig = require("mason-lspconfig")
         local lspconfig = require("lspconfig")
+        
+        mason_lspconfig.setup({
+            ensure_installed = { "clangd", "ts_ls" },
+            automatic_installation = true,
+        })
 
         local function keybind(bufnr)
             local opts = { noremap = true, silent = true }
@@ -25,26 +81,45 @@ return {
             end, opts)
         end
 
-        lspconfig.clangd.setup {
-            cmd = { "clangd" },
-            filetypes = { "c", "cpp", "objc", "objcpp" },
-            root_dir = lspconfig.util.root_pattern(".git", "compile_commands.json", "compile_flags.txt", "Makefile", "CMakeLists.txt") or vim.loop.os_homedir(),
-            single_file_support = true,
-            capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
-            init_options = {
-                fallbackFlags = { "-std=c++23" }
+        -- Configure LSP servers
+        local servers = {
+            clangd = {
+                cmd = { "clangd" },
+                filetypes = { "c", "cpp", "objc", "objcpp" },
+                root_dir = lspconfig.util.root_pattern(
+                    ".git",
+                    "compile_commands.json",
+                    "compile_flags.txt",
+                    "Makefile",
+                    "CMakeLists.txt"
+                ) or vim.loop.os_homedir(),
+                init_options = {
+                    fallbackFlags = { "-std=c++23" }
+                },
+                capabilities = capabilities,
             },
-
-            handlers = {
-                ["textDocument/publishDiagnostics"] = function(...) 
-                    vim.lsp.diagnostic.on_publish_diagnostics(...)
-                end,
+            ts_ls = {
+                cmd = { "typescript-language-server", "--stdio" },
+                filetypes = {
+                    "javascript",
+                    "javascriptreact",
+                    "javascript.jsx",
+                    "typescript",
+                    "typescriptreact",
+                    "typescript.tsx",
+                },
+                root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git"),
+                capabilities = capabilities,
             },
+        }
 
-            on_attach = function(client, bufnr)
+        -- Setup each LSP server
+        for server, config in pairs(servers) do
+            config.on_attach = function(client, bufnr)
                 keybind(bufnr)
             end
-        }
+            lspconfig[server].setup(config)
+        end
         lspconfig.ts_ls.setup {
             cmd = { "typescript-language-server", "--stdio" },
             filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx", },
