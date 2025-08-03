@@ -37,6 +37,7 @@ if [[ "$sudo_perms" =~ ^[Yy](es)?$ ]]; then
             git
             curl
             make
+            build-essential
         )
 
         # Install apt packages
@@ -108,11 +109,11 @@ fi
 if command_exists brew; then
     status "Installing/updating Homebrew packages..."
     brew_packages=(
-        neovim
         python@3.13
         gcc
         lazygit
         gh
+        neovim
         oh-my-posh
         lsd
         diff-so-fancy

@@ -22,6 +22,10 @@ alias linux="ssh lai.huy@linux.cse.tamu.edu"
 alias python="/home/linuxbrew/.linuxbrew/bin/python3"
 alias python3="/home/linuxbrew/.linuxbrew/bin/python3.13"
 
+# Aliases for g++
+alias gcc="/home/linuxbrew/.linuxbrew/bin/gcc-15"
+alias g++="/home/linuxbrew/.linuxbrew/bin/g++-15"
+
 # Alias for lsDelux
 alias ls="lsd"
 alias ll="ls --all --long --classify"

@@ -122,21 +122,15 @@ if [ ! -e ~/.hushlogin ]; then
 fi
 
 export XDG_CONFIG_HOME=~/.dotfiles
-export PATH="/usr/local/texlive/2024/bin/x86_64-linux:$PATH"
-export PATH="/home/linuxbrew/.linuxbrew/opt/node@20/bin:$PATH"
-export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
-
-export HADOOP_HOME=/usr/local/hadoop
-export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
-export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64/
 
 if command -v /home/linuxbrew/.linuxbrew/bin/oh-my-posh &> /dev/null; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/oh-my-posh init bash --config $XDG_CONFIG_HOME/omp/config.json)"
 fi
 
-if [ -f /home/linuxbrew/.linuxbrew/bin/brew ]; then
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-fi
+export NVM_DIR="$HOME/.dotfiles/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Navigate to ~/.dotfiles and git pull
 cd $HOME/.dotfiles
@@ -146,8 +140,3 @@ cd -
 bind -x '"\C-l": clear'
 bind -x '"\C-d": exit'
 bind -x '"\C-e": nvim'
-
-
-export NVM_DIR="$HOME/.dotfiles/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
