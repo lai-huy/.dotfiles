@@ -36,7 +36,6 @@ if [[ "$sudo_perms" =~ ^[Yy](es)?$ ]]; then
         apt_packages=(
             git
             curl
-            make
             build-essential
         )
 
@@ -109,14 +108,16 @@ fi
 if command_exists brew; then
     status "Installing/updating Homebrew packages..."
     brew_packages=(
-        python@3.13
-        gcc
+        cmake
+        diff-so-fancy
+        git
         lazygit
-        gh
+        llvm
+        lsd
+        make
         neovim
         oh-my-posh
-        lsd
-        diff-so-fancy
+        valgrind
     )
 
     # Get list of installed packages
