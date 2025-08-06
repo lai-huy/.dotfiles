@@ -84,8 +84,11 @@ return {
         -- Configure LSP servers
         local servers = {
             clangd = {
-                cmd = { "clangd" },
+                cmd = { "clangd", "--query-driver=/home/linuxbrew/.linuxbrew/bin/g++-15" },
                 filetypes = { "c", "cpp", "objc", "objcpp" },
+                init_options = {
+                    fallbackFlags = { "--std=c++23" }
+                },
                 root_dir = lspconfig.util.root_pattern(
                     ".git",
                     "compile_commands.json",
@@ -93,9 +96,6 @@ return {
                     "Makefile",
                     "CMakeLists.txt"
                 ) or vim.loop.os_homedir(),
-                init_options = {
-                    fallbackFlags = { "-std=c++23" }
-                },
                 capabilities = capabilities,
             },
             ts_ls = {
