@@ -1,4 +1,7 @@
-vim.opt.nu = true
+vim.g.mapleader = "\\"
+vim.g.maplocalleader = "\\"
+
+vim.opt.number = true
 vim.opt.relativenumber = true
 
 vim.opt.tabstop = 4
@@ -10,10 +13,18 @@ vim.opt.smartindent = true
 
 vim.opt.wrap = false
 
+vim.opt.signcolumn = "yes"
+vim.opt.winborder = "rounded"
+vim.opt.colorcolumn = "80,160,240"
+
+vim.g.python3_host_prog = "/home/linuxbrew/.linuxbrew/bin/python3"
+vim.g.loaded_node_provider = 0
+vim.g.loaded_perl_provider = 0
+
 vim.opt.swapfile = false
 vim.opt.backup = false
 -- vim.opt.undodir = ".local/state/nvim/undo"
-vim.opt.undofile = true
+vim.opt.undofile = false
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
