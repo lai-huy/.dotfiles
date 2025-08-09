@@ -7,8 +7,6 @@ return {
         "--header-insertion=iwyu",
         "--completion-style=detailed",
         "--all-scopes-completion",
-        "--suggest-missing-includes",
-        "--cross-file-rename",
         "--log=info",
     },
     filetypes = { "c", "cpp", "cuda", "objc", "objcpp", "proto" },
