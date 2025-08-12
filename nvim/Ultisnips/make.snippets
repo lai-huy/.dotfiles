@@ -1,25 +1,30 @@
 snippet cpp "cpp"
-all: run
+# Compiler and flags
+CXX = g++-15
+CXXFLAGS = -std=c++23 -Wall -Wextra -Weffc++ -pedantic-errors -g
+
+# Targets
+TARGET = main.out
+SRC = main.cpp
+
+.DEFAULT_GOAL := run
+.PHONY: all clean run valgrind
+
+all: $(TARGET)
+
+$(TARGET): $(SRC)
+	$(CXX) $(CXXFLAGS) -o $@ $(SRC)
 
 clean:
-    rm -f *.gcov *.gcda *.gcno *.out
+	rm -rf $(TARGET)
 
-run: clean
-    g++ -std=c++17 -Wall -Wextra -Weffc++ -pedantic-errors -g -o main.out main.cpp
-    ./main.out
+build: $(TARGET)
 
-memory_errors: clean
-    g++ -std=c++17 -Wall -Wextra -Weffc++ -pedantic-errors -g -o valgrind.out main.cpp
-    valgrind --leak-check=full --show-leak-kinds=all -s ./valgrind.out
+run: clean build $(TARGET)
+	./$(TARGET)
 
-endsnippet
-
-snippet tex "tex"
-all: clean
-
-clean:
-    latexmk -c
-    rm -rf *.synctex.gz
+valgrind: $(TARGET)
+	valgrind --leak-check=full --show-leak-kinds=all -s ./$(TARGET)
 
 endsnippet
 

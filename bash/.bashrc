@@ -121,6 +121,7 @@ if [ ! -e ~/.hushlogin ]; then
     touch ~/.hushlogin
 fi
 
+export PATH="/home/linuxbrew/.linuxbrew/opt/binutils/bin:$PATH"
 export XDG_CONFIG_HOME=~/.dotfiles
 
 if command -v /home/linuxbrew/.linuxbrew/bin/oh-my-posh &> /dev/null; then

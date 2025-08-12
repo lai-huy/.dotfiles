@@ -17,8 +17,7 @@ endsnippet
 # Keywords
 
 snippet struct "c++ struct .. (struct)"
-struct ${1:`!p snip.rv = snip.basename or "name"`}
-{
+struct ${1:`!p snip.rv = snip.basename or "name"`} {
 public:
 	${2}
 
@@ -28,8 +27,7 @@ private:
 endsnippet
 
 snippet class "class .. (class)"
-class ${1:`!p snip.rv = snip.basename or "name"`} 
-{
+class ${1:`!p snip.rv = snip.basename or "name"`} {
 public:
 	${2}
 
@@ -46,9 +44,14 @@ namespace${1/.+/ /m}${1:`!p snip.rv = snip.basename or "name"`}
 endsnippet
 
 snippet forr "for range loop"
-for(auto ${2:x} : ${1:collection})
-{
+for (const auto& ${2:x} : ${1:collection}) {
 	${0:/* code */}
+}
+endsnippet
+
+snippet form "for range loop map"
+for (auto const& [key, value] : ${1:map}) {
+	${0: /* code */}
 }
 endsnippet
 
