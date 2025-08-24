@@ -1,5 +1,5 @@
 # Aliases for changing directories
-alias tamu="cd /mnt/c/MrPineapple/TAMU"
+alias mnt="cd /mnt/c/MrPineapple"
 
 # Aliases for other commands
 alias e="exit"
