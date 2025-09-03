@@ -72,5 +72,12 @@ return {
                 },
             },
         })
+
+        local opts = { noremap = true, silent = true }
+        vim.keymap.set("n", "<Tab>", "<cmd>BufferLineCycleNext<CR>", opts)
+        vim.keymap.set("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", opts)
+        vim.keymap.set("n", "<leader>bp", "<cmd>BufferLinePick<CR>", opts)
+        vim.keymap.set("n", "<leader>bc", "<cmd>BufferLinePickClose<CR>", opts)
+        vim.keymap.set("n", "<leader>bd", "<cmd>bdelete<CR>", opts)
     end,
 }
