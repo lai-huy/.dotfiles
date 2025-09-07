@@ -4,73 +4,63 @@ return {
     dependencies = "nvim-tree/nvim-web-devicons",
     config = function()
         vim.opt.termguicolors = true
-        require("bufferline").setup({
+
+        local bufferline = require("bufferline")
+        bufferline.setup({
             options = {
-                buffer_close_icon = "",
-                close_command = "bdelete %d",
-                close_icon = "",
+                mode = "buffers",
+                style_preset = bufferline.style_preset.default,
+                themable = true,
+                numbers = "ordinal",
+                close_command = "bdelete! %d",
+                right_mouse_command = "bdelete! %d",
+                left_mouse_command = "buffer %d",
+                middle_mouse_command = nil,
                 indicator = {
                     style = "icon",
                     icon = "▎",
                 },
-                left_trunc_marker = "",
+                buffer_close_icon = "✕",
                 modified_icon = "●",
-                offsets = { { filetype = "NvimTree", text = "EXPLORER", text_align = "center" } },
-                right_mouse_command = "bdelete! %d",
+                close_icon = "",
+                left_trunc_marker = "",
                 right_trunc_marker = "",
-                show_close_icon = false,
-                show_tab_indicators = true,
-                separator_style = "slant",
+                max_name_length = 18,
+                max_prefix_length = 15,
+                truncate_names = true,
+                tab_size = 18,
                 diagnostics = "nvim_lsp",
+                diagnostics_update_in_insert = false,
+                diagnostics_update_on_event = true,
                 diagnostics_indicator = function(count, level, diagnostics_dict, context)
                     local icon = level:match("error") and " "
                         or level:match("warning") and " "
                         or ""
                     return " " .. icon .. count
                 end,
-            },
-            highlights = {
-                fill = {
-                    fg = { attribute = "fg", highlight = "Normal" },
-                    bg = { attribute = "bg", highlight = "StatusLineNC" },
-                },
-                background = {
-                    fg = { attribute = "fg", highlight = "Normal" },
-                    bg = { attribute = "bg", highlight = "StatusLine" },
-                },
-                buffer_visible = {
-                    fg = { attribute = "fg", highlight = "Normal" },
-                    bg = { attribute = "bg", highlight = "Normal" },
-                },
-                buffer_selected = {
-                    fg = { attribute = "fg", highlight = "Normal" },
-                    bg = { attribute = "bg", highlight = "Normal" },
-                },
-                separator = {
-                    fg = { attribute = "bg", highlight = "Normal" },
-                    bg = { attribute = "bg", highlight = "StatusLine" },
-                },
-                separator_selected = {
-                    fg = { attribute = "fg", highlight = "Special" },
-                    bg = { attribute = "bg", highlight = "Normal" },
-                },
-                separator_visible = {
-                    fg = { attribute = "fg", highlight = "Normal" },
-                    bg = { attribute = "bg", highlight = "StatusLineNC" },
-                },
-                close_button = {
-                    fg = { attribute = "fg", highlight = "Normal" },
-                    bg = { attribute = "bg", highlight = "StatusLine" },
-                },
-                close_button_selected = {
-                    fg = { attribute = "fg", highlight = "Normal" },
-                    bg = { attribute = "bg", highlight = "Normal" },
-                },
-                close_button_visible = {
-                    fg = { attribute = "fg", highlight = "Normal" },
-                    bg = { attribute = "bg", highlight = "Normal" },
+                offsets = {
+                    {
+                        filetype = "NvimTree",
+                        text = "File Explorer",
+                        text_align = "left",
+                        separator = true,
+                    }
                 },
             },
+            -- highlights = {
+            --     separator = {
+            --         fg = { attribute = "bg", highlight = "Normal" },
+            --         bg = "none",
+            --     },
+            --     separator_selected = {
+            --         fg = { attribute = "bg", highlight = "Normal" },
+            --         bg = "none",
+            --     },
+            --     separator_visible = {
+            --         fg = { attribute = "bg", highlight = "Normal" },
+            --         bg = "none",
+            --     },
+            -- },
         })
 
         local opts = { noremap = true, silent = true }
