@@ -117,6 +117,7 @@ if command_exists brew; then
         make
         neovim
         oh-my-posh
+        openssh
         valgrind
     )
 

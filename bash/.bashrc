@@ -128,6 +128,8 @@ if command -v /home/linuxbrew/.linuxbrew/bin/oh-my-posh &> /dev/null; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/oh-my-posh init bash --config $XDG_CONFIG_HOME/omp/config.json)"
 fi
 
+export HOMEBREW_CURL_PATH="$HOMEBREW_PREFIX/bin/curl"
+
 export NVM_DIR="$HOME/.dotfiles/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
