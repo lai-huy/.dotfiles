@@ -12,7 +12,7 @@ alias sign="gpg -se -r \"98334390+lai-huy@users.noreply.github.com\" .gitignore"
 
 # Aliases for python
 alias python="/home/linuxbrew/.linuxbrew/bin/python3"
-alias python3="/home/linuxbrew/.linuxbrew/bin/python3.13"
+alias python3="/home/linuxbrew/.linuxbrew/bin/python3.14"
 
 # Aliases for g++
 alias gcc="/home/linuxbrew/.linuxbrew/bin/gcc-15"
